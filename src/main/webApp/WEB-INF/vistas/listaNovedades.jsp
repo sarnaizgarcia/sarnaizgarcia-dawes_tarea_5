@@ -28,22 +28,23 @@
 				<th>Titulo</th>
 				<th>Autor</th>
 				<th>Precio</th>
-				<th colspan="3">Opciones</th>
+				<th>Opciones</th>
 			</tr>
-			<c:forEach var="ele" items="${listaTodos }">
+			<c:forEach var="ele" items="${listaLibros }">
 				<tr>
-					<td>${ele.codigo }</td>
-					<td>${ele.descripcion }</td>
-					<td><a href="/app/producto/verUno/${ele.codigo}"
+					<td>${ele.titulo }</td>
+					<td>${ele.autor }</td>
+					<td>${ele.precioUnitario }</td>
+					<td><a href="/cliente/verDetalle/${ele.isbn}"
 						class="btn btn-success btn-sm">Ver detalle</a> <sec:authorize
 							access="hasAnyAuthority('ROL_ADMON')">
-							<a href="/app/producto/editar/${ele.codigo}"
-								class="btn btn-success btn-sm">Modificar</a>
-							<a href="/app/producto/eliminar/${ele.codigo}"
+							<a href="/app/producto/editar/${ele.isbn}"
+								class="btn btn-success btn-sm">Editar</a>
+							<a href="/app/producto/eliminar/${ele.isbn}"
 								class="btn btn-danger btn-sm">Eliminar</a>
 						</sec:authorize> <sec:authorize access="hasAnyAuthority('ROL_CLIENTE')">
-							<a href="/app/producto/addCarrito/${ele.codigo }">Añadir al
-								carrito</a>
+							<a href="/app/producto/addCarrito/${ele.isbn }"
+								class="btn btn-warning btn-sm">Añadir al carrito</a>
 						</sec:authorize></td>
 				</tr>
 			</c:forEach>

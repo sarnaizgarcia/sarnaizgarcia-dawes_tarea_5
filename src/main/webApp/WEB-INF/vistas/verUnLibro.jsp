@@ -59,17 +59,16 @@ tr {
 				<td>Novedad</td>
 				<td>${listaLibros.novedad}</td>
 			</tr>
-			<c:forEach var="ele" items="${listaLibros.temas}">
-				<tr>
-					<td>${ele.idTema }</td>
-				</tr>
-			</c:forEach>
+			<tr>
+				<td>Tema</td>
+				<td>${listaLibros.tema.descTema }</td>
+			</tr>
 		</table>
 	</div>
 
 	<h3>Mensajes: ${mensaje}</h3>
 
-	<a href="/eventos/destacados">Volver al inicio</a>
+	<a href="/">Volver al inicio</a>
 
 
 </body>
