@@ -7,66 +7,38 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<style>
-div {
-	display: flex;
-}
-
-table {
-	width: 25%;
-	border-collapse: collapse;
-	text-align: left;
-	margin: 10px;
-}
-
-td {
-	border: solid 3px #00AEFF;
-	text-align: center;
-	padding: 10px
-}
-
-tr {
-	font-size: 18px;
-	font-weight: bold;
-}
-</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <body>
 
-	<h2>Detalle del Libro seleccionado</h2>
-	<div>
-		<table>
+
+	<div class="container">
+		<h1 class="text-primary">Detalle del Libro seleccionado</h1>
+		<table class="table table-striped table-sm">
 			<tr>
-				<td>Isbn</td>
+				<th>Isbn</th>
+				<th>Titulo</th>
+				<th>Autor</th>
+				<th>Precio</th>
+				<th>Paginas</th>
+				<th>Novedad</th>
+				<th>Tema</th>
+				<th>Portada</th>
+			</tr>
+			<tr>
 				<td>${listaLibros.isbn}</td>
-			</tr>
-			<tr>
-				<td>Titulo</td>
 				<td>${listaLibros.titulo}</td>
-			</tr>
-			<tr>
-				<td>Autor</td>
 				<td>${listaLibros.autor}</td>
-			</tr>
-			<tr>
-				<td>Precio</td>
 				<td>${listaLibros.precioUnitario}</td>
-			</tr>
-			<tr>
-				<td>Paginas</td>
 				<td>${listaLibros.paginas}</td>
-			</tr>
-			<tr>
-				<td>Novedad</td>
 				<td>${listaLibros.novedad}</td>
-			</tr>
-			<tr>
-				<td>Tema</td>
 				<td>${listaLibros.tema.descTema }</td>
+				<td>${listaLibros.imagen }</td>
 			</tr>
 		</table>
 	</div>
-
-	<h3>Mensajes: ${mensaje}</h3>
 
 	<a href="/">Volver al inicio</a>
 

@@ -20,7 +20,7 @@
 	<div class="container">
 		<h1 class="text-primary">Lista de novedades</h1>
 		<sec:authorize access="hasAnyAuthority('ROL_ADMON')">
-			<a href="/app/producto/alta" class="btn btn-primary btn-sm">Nuevo
+			<a href="/admon/alta" class="btn btn-primary btn-sm">Nuevo
 				Libro</a>
 		</sec:authorize>
 		<table class="table table-striped table-sm">
@@ -38,12 +38,12 @@
 					<td><a href="/cliente/verDetalle/${ele.isbn}"
 						class="btn btn-success btn-sm">Ver detalle</a> <sec:authorize
 							access="hasAnyAuthority('ROL_ADMON')">
-							<a href="/app/producto/editar/${ele.isbn}"
+							<a href="/admon/editar/${ele.isbn}"
 								class="btn btn-success btn-sm">Editar</a>
-							<a href="/app/producto/eliminar/${ele.isbn}"
+							<a href="/admon/eliminar/${ele.isbn}"
 								class="btn btn-danger btn-sm">Eliminar</a>
 						</sec:authorize> <sec:authorize access="hasAnyAuthority('ROL_CLIENTE')">
-							<a href="/app/producto/addCarrito/${ele.isbn }"
+							<a href="/cliente/addCarrito/${ele.isbn }"
 								class="btn btn-warning btn-sm">Añadir al carrito</a>
 						</sec:authorize></td>
 				</tr>

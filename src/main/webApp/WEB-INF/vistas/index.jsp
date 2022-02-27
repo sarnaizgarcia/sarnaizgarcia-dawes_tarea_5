@@ -10,9 +10,9 @@
 <body>
 	<h1>Bienvenido ${mensaje}</h1>
 
-	<a href="/app/producto/verUno/3">Ver uno</a>
+	<a href="/cliente/verUno/1234">Ver uno</a>
 	<p>
-		<a href="/app/producto/todos">Ver Todos</a>
+		<a href="/">Ver Todos</a>
 	</p>
 
 

@@ -41,11 +41,9 @@
 				<sec:authorize access="!isAuthenticated()">
 					<li class="nav-item"><a class="nav-link" href="/index">Iniciar
 							Sesión</a></li>
-					<li class="nav-item"><a class="nav-link" href="/registro">Registrarse</a></li>
 				</sec:authorize>
 				<sec:authorize access="hasAuthority('ROL_ADMON')">
-					<li class="nav-item"><a class="nav-link"
-						href="/admon/temas">Temas</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admon/temas">Temas</a></li>
 				</sec:authorize>
 				<sec:authorize access="hasAuthority('ROL_CLIENTE')">
 					<li class="nav-item"><a class="nav-link"
@@ -62,6 +60,7 @@
 			</ul>
 		</div>
 	</nav>
+	<h3>Mensaje: ${mensaje }</h3>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

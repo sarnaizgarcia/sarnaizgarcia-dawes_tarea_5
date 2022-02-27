@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +24,14 @@
 				<th>Direccion</th>
 				<th>Fecha alta</th>
 			</tr>
-			<c:forEach var="ele" items="${listaTemas }">
+			<c:forEach var="ele" items="${listaUsuarios }">
 				<tr>
 					<td>${ele.username }</td>
 					<td>${ele.password }</td>
 					<td>${ele.enabled }</td>
 					<td>${ele.email }</td>
 					<td>${ele.nombre }</td>
+					<td>${ele.apellido }
 					<td>${ele.direccion }</td>
 					<td><fmt:formatDate pattern="dd-MM-yyyy"
 							value="${ele.fechaAlta}" /></td>
