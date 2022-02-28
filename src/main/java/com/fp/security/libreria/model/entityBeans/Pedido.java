@@ -30,7 +30,7 @@ public class Pedido implements Serializable {
 	private Date fechaAlta;
 
 	// bi-directional many-to-one association to LineasPedido
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany(mappedBy = "pedido", cascade = { CascadeType.PERSIST })
 	private List<LineasPedido> lineasPedidos;
 
 	// uni-directional many-to-one association to Usuario
