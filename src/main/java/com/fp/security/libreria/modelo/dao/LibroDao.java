@@ -15,4 +15,5 @@ public interface LibroDao {
 	int eliminarLibro(long isbn);
 
 	int altaLibro(Libro libro);
+	
 }

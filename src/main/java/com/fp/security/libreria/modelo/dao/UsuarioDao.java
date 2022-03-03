@@ -9,5 +9,5 @@ public interface UsuarioDao {
 	List<Usuario> findAll();
 
 	Usuario findById(String username);
-
+	
 }

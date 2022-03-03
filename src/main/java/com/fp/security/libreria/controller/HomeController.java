@@ -41,5 +41,11 @@ public class HomeController {
 
 		return "redirect:/";
 	}
+	
+	@GetMapping("/error")
+	public String error() {
+		return "error";
+	}
+
 
 }
