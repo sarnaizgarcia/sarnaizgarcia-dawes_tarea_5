@@ -16,25 +16,25 @@
 		<table class="table table-striped table-sm">
 			<tr>
 				<th>Username</th>
-				<th>Password</th>
 				<th>Enabled</th>
 				<th>Email</th>
 				<th>Nombre</th>
 				<th>Apellido</th>
 				<th>Direccion</th>
 				<th>Fecha alta</th>
+				
 			</tr>
 			<c:forEach var="ele" items="${listaUsuarios }">
 				<tr>
 					<td>${ele.username }</td>
-					<td>${ele.password }</td>
-					<td>${ele.enabled }</td>
+					<td>${ele.enabled == 1 ? "Sí" : "No" }</td>
 					<td>${ele.email }</td>
 					<td>${ele.nombre }</td>
 					<td>${ele.apellido }
 					<td>${ele.direccion }</td>
-					<td><fmt:formatDate pattern="dd-MM-yyyy"
-							value="${ele.fechaAlta}" /></td>
+					<td>
+						<fmt:formatDate pattern="dd-MM-yyyy" value="${ele.fechaAlta}" />
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -92,7 +92,9 @@ public class ControllerCliente {
 		
 		carrito.clear();
 		model.addAttribute("lineasPedido", lineasPedido);
-		model.addAttribute("importe", importePedido);
+		model.addAttribute("importePedido", importePedido);
+		model.addAttribute("usuario", usuario);
+
 
 		return "pedidoFinalizado";
 	}
@@ -102,6 +104,12 @@ public class ControllerCliente {
 		Libro libroEnCarrito = ldao.verUno(isbn);
 		carrito.remove(libroEnCarrito);
 		return "redirect:/cliente/verCarrito";	
+	}
+	
+	@GetMapping("/misDatos")
+	public String verMisDatos(Model model, Authentication aut) {
+		model.addAttribute("datosCliente", usuarioDao.findById(aut.getName()));
+		return "verDatosCliente";
 	}
 	
 	@GetMapping("/busquedaPorTema")

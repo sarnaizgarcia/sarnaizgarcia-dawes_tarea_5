@@ -22,11 +22,24 @@
 					<tr>
 						<th>Título</th>
 						<th>Autor</th>
+						<th>Opciones</th>
+						
 					</tr>
 					<c:forEach var="ele" items="${librosPorPalabra }">
 						<tr>
 							<td>${ele.titulo }</td>
 							<td>${ele.autor }</td>
+														<td>
+								<a href="/cliente/verDetalle/${ele.isbn}"
+									class="btn btn-success btn-sm">
+									Ver detalle
+								</a> 
+								<a href="/cliente/addCarrito/${ele.isbn }"
+									class="btn btn-warning btn-sm">
+									Añadir al carrito
+								</a>
+							</td>
+							
 						</tr>
 					</c:forEach>
 				</table>				

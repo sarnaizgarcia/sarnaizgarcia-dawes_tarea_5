@@ -13,6 +13,7 @@
 	crossorigin="anonymous">
 <body>
 
+	<jsp:include page="inicio.jsp"></jsp:include>
 
 	<div class="container">
 		<h1 class="text-primary">Detalle del Libro seleccionado</h1>
