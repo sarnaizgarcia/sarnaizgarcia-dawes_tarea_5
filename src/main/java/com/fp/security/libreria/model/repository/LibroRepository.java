@@ -11,5 +11,11 @@ public interface LibroRepository extends JpaRepository<Libro, Long> {
 
 	@Query("select l from Libro l where l.novedad='s'")
 	List<Libro> verNovedades();
+	
+	@Query("select l from Libro l where lower(l.tema.descTema) like lower (concat('%', :nombreTema,'%'))")
+	List<Libro> buscarPorTema(String nombreTema);
+
+	@Query("select l from Libro l where lower(l.titulo) like lower (concat('%', :palabra,'%'))")
+	List<Libro> buscarPorPalabra(String palabra);
 
 }

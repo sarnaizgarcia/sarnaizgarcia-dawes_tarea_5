@@ -56,4 +56,14 @@ public class LibroDaoImpl implements LibroDao {
 			return 0;
 	}
 
+	@Override
+	public List<Libro> buscarLibroPorTema(String tema) {
+		return lrepo.buscarPorTema(tema);
+	}
+
+	@Override
+	public List<Libro> buscarLibroPorPalabra(String palabra) {
+		return lrepo.buscarPorPalabra(palabra);
+	}
+
 }

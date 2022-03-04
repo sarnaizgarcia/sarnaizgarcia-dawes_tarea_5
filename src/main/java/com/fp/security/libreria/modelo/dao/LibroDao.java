@@ -16,4 +16,8 @@ public interface LibroDao {
 
 	int altaLibro(Libro libro);
 	
+	List<Libro> buscarLibroPorTema(String tema);
+	
+	List<Libro> buscarLibroPorPalabra(String tema);
+
 }

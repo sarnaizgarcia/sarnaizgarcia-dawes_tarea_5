@@ -11,22 +11,29 @@
 	<jsp:include page="inicio.jsp"></jsp:include>
 
 	<div class="container">
-		<h1 class="text-primary">Lista de temas</h1>
-		<table class="table table-striped table-sm">
-			<tr>
-				<th>Id tema</th>
-				<th>Descripcion</th>
-				<th>Abreviatura</th>
-			</tr>
-			<c:forEach var="ele" items="${listaTemas }">
-				<tr>
-					<td>${ele.idTema }</td>
-					<td>${ele.descTema }</td>
-					<td>${ele.abreviatura }</td>
-				</tr>
-			</c:forEach>
-		</table>
+		<h1 class="text-primary">Libros por palabra ${palabra }</h1>
+		
+		<c:choose>
+			<c:when test="${librosPorPalabra.size() == 0 }">
+				<p style="color:red">No se han encontrado resultados</p>
+			</c:when>
+			<c:otherwise>
+				<table class="table table-striped table-sm">
+					<tr>
+						<th>Título</th>
+						<th>Autor</th>
+					</tr>
+					<c:forEach var="ele" items="${librosPorPalabra }">
+						<tr>
+							<td>${ele.titulo }</td>
+							<td>${ele.autor }</td>
+						</tr>
+					</c:forEach>
+				</table>				
+			</c:otherwise>
+		</c:choose>
 	</div>
+	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

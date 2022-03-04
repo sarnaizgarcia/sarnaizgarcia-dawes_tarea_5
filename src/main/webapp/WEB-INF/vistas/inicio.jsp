@@ -24,7 +24,6 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
@@ -61,6 +60,27 @@
 		</div>
 	</nav>
 	<h3>Mensaje: ${mensaje }</h3>
+	
+	<form action="/cliente/busquedaPorTema" method="get">
+		<div class="input-group">
+	  		<div class="form-outline">
+	    		<label class="form-label" for="form1">Buscar por tema:</label>
+	    		<input type="search" name="nombreTema" id="nombreTema" class="form-control" />
+	    		<input type="submit" value="Buscar por tema" class="btn btn-primary">
+	  		</div>
+		</div>
+	</form>
+	
+	<form action="/cliente/busquedaPorPalabra" method="get">
+		<div class="input-group">
+	  		<div class="form-outline">
+	    		<label class="form-label" for="form1">Buscar por palabra:</label>
+	    		<input type="search" name="palabra" class="form-control" />
+	    		<input type="submit" value="Buscar" class="btn btn-primary">
+	  		</div>
+		</div>
+	</form>
+	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>

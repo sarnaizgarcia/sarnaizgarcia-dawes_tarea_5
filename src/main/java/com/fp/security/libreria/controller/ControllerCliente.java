@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fp.security.libreria.model.entityBeans.Libro;
 import com.fp.security.libreria.model.entityBeans.LineasPedido;
@@ -70,14 +71,14 @@ public class ControllerCliente {
 	public String comprar(Authentication aut, Model model) {
 		List<LineasPedido> lineasPedido = new ArrayList<>();
 		Pedido pedido = new Pedido();
-		Usuario usuario = usuarioDao.findById(aut.getName()); // Sacar esto de algún modo
+		Usuario usuario = usuarioDao.findById(aut.getName());
 		pedido.setUsuario(usuario);
 		pedido.setDireccionEntrega(usuario.getDireccion());
 		pedido.setEstado("Terminado");
 		pedidoDao.altaPedido(pedido);
 		BigDecimal importePedido = new BigDecimal("0.00");
 		
-		for (int i = 0; i < carrito.size() - 1; i++) {
+		for (int i = 0; i < carrito.size(); i++) {
 			LineasPedido lineaPedido = new LineasPedido();
 			Libro libro = carrito.get(i);
 			lineaPedido.setLibro(libro);
@@ -87,20 +88,36 @@ public class ControllerCliente {
 			lineasPedidoDao.altaLineaPedido(lineaPedido);
 			lineasPedido.add(lineaPedido);
 			importePedido = lineaPedido.getPrecioVenta();
-			carrito.remove(libro);
 		}
 		
+		carrito.clear();
 		model.addAttribute("lineasPedido", lineasPedido);
 		model.addAttribute("importe", importePedido);
 
 		return "pedidoFinalizado";
 	}
 
-	@GetMapping("/eliminar/{isbn}") // Va con path variable????
+	@GetMapping("/eliminar/{isbn}")
 	public String eliminarLibro(@PathVariable("isbn") long isbn) {
 		Libro libroEnCarrito = ldao.verUno(isbn);
 		carrito.remove(libroEnCarrito);
 		return "redirect:/cliente/verCarrito";	
 	}
 	
+	@GetMapping("/busquedaPorTema")
+	public String buscarPorTema(@RequestParam("nombreTema") String nombreTema, Model model) {
+		List<Libro> librosPorTema = ldao.buscarLibroPorTema(nombreTema != null ? nombreTema.toLowerCase() : null);
+		model.addAttribute("librosPorTema", librosPorTema);
+		model.addAttribute("nombreTema", nombreTema);
+		return "librosPorTema";
+	}
+
+	@GetMapping("/busquedaPorPalabra")
+	public String buscarPorPalabra(@RequestParam("palabra") String palabra, Model model) {
+		List<Libro> librosPorPalabra = ldao.buscarLibroPorPalabra(palabra != null ? palabra.toLowerCase() : null);
+		model.addAttribute("librosPorPalabra", librosPorPalabra);
+		model.addAttribute("palabra", palabra);
+		return "librosPorPalabra";
+	}
+
 }
