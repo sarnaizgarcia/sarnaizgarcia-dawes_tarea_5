@@ -20,8 +20,7 @@
 	<div class="container">
 		<h1 class="text-primary">Lista de novedades</h1>
 		<sec:authorize access="hasAnyAuthority('ROL_ADMON')">
-			<a href="/admon/alta" class="btn btn-primary btn-sm">Nuevo
-				Libro</a>
+			<a href="/admon/alta" class="btn btn-primary btn-sm">Nuevo Libro</a>
 		</sec:authorize>
 		<table class="table table-striped table-sm">
 			<tr>

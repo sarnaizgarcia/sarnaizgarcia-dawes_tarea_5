@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,7 @@
 	<jsp:include page="inicio.jsp"></jsp:include>
 
 	<div class="container">
+		
 		<h1 class="text-primary">Libros por palabra ${palabra }</h1>
 		
 		<c:choose>
@@ -29,15 +32,17 @@
 						<tr>
 							<td>${ele.titulo }</td>
 							<td>${ele.autor }</td>
-														<td>
+							<td>
 								<a href="/cliente/verDetalle/${ele.isbn}"
 									class="btn btn-success btn-sm">
 									Ver detalle
-								</a> 
-								<a href="/cliente/addCarrito/${ele.isbn }"
-									class="btn btn-warning btn-sm">
-									Añadir al carrito
 								</a>
+								<sec:authorize access="hasAnyAuthority('ROL_CLIENTE')">
+									<a href="/cliente/addCarrito/${ele.isbn }"
+										class="btn btn-warning btn-sm">
+										Añadir al carrito
+									</a>
+								</sec:authorize>
 							</td>
 							
 						</tr>

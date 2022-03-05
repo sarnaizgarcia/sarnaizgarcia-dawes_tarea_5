@@ -52,7 +52,7 @@ public class ControllerCliente {
 		Libro libroEnCarrito = ldao.verUno(isbn);
 		if (carrito.indexOf(libroEnCarrito) == -1)
 			carrito.add(libroEnCarrito);
-		return "forward:/"; // a lista novedades??
+		return "forward:/";
 	}
 	
 	@GetMapping("/verCarrito")
@@ -114,6 +114,8 @@ public class ControllerCliente {
 	
 	@GetMapping("/busquedaPorTema")
 	public String buscarPorTema(@RequestParam("nombreTema") String nombreTema, Model model) {
+//		if (nombreTema == "")
+//			return "forward:/";
 		List<Libro> librosPorTema = ldao.buscarLibroPorTema(nombreTema != null ? nombreTema.toLowerCase() : null);
 		model.addAttribute("librosPorTema", librosPorTema);
 		model.addAttribute("nombreTema", nombreTema);

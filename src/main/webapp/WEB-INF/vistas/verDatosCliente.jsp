@@ -15,14 +15,12 @@
 		<table class="table table-striped table-sm">
 			<tr>
 				<th>Username</th>
-				<th>Password</th>
 				<th>Email</th>
 				<th>Direccion</th>
 			</tr>
 
 			<tr>
 				<td>${datosCliente.username }</td>
-				<td>${datosCliente.password }</td>
 				<td>${datosCliente.email }</td>
 				<td>${datosCliente.direccion }</td>
 			</tr>
